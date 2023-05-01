@@ -30,3 +30,15 @@ Only one valid answer exists.
  
 
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity? */
+
+
+var twoSum = function(nums, target) {
+    const hashTable = {};
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (complement in hashTable) {
+            return [hashTable[complement], i];
+        }
+        hashTable[nums[i]] = i;
+    }
+};
